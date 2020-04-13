@@ -8,5 +8,5 @@ and the descriptive strings from a key-value-strings-utf8.txt file from aoe2de.
 Example invocation:
 
 ```
-./generateDataFiles.py ~/git/aoe2dat/data/full.json ~/aoe/Aoe2DE\ proton/resources/ > ../data/data.json
+./generateDataFiles.py ~/git/aoe2dat/data/full.json ~/aoe/Aoe2DE\ proton/resources/
 ```
