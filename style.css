@@ -6,7 +6,7 @@ body {
     --xRef-badge-size: 30px;
 }
 
-body, input, select {
+body, input, select, tspan {
     font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
     line-height: 1.55;
 }
