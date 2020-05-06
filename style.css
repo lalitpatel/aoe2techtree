@@ -17,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     background: url("img/Backgrounds/bg_aoe2_hd_paper.jpg") repeat;
+    font-size: 10pt;
 }
 
 .info,
