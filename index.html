@@ -58,39 +58,36 @@
                 <hr>
                 <p id="civtext"></p>
             </div>
-            <div>
-                <details open>
-                <summary><b>Key</b></summary>
+            <div class="key">
+                <b id="key__label">Key</b>
                 <table border="0" cellspacing="10" id="color_key">
                     <colgroup>
-                        <col width="23" style="border: 1px solid #4d3617"/>
-                        <col width="150"/>
+                        <col width="23"/>
+                        <col width="110"/>
+                        <col width="23"/>
+                        <col width="110"/>
                     </colgroup>
                 </table>
-                </details>
             </div>
-            <div class="info">
+            <div class="credits">
                 <p>
                     Version: Age of Empires II DE Update <a href="https://www.ageofempires.com/news/aoe2de-update-36906/" target="_blank" title="Changelog" rel="nofollow">36906</a>
+                </p>
+                <p>
+                    A project by <a href="https://aoe2.se" rel="author" class="has-text-grey">Siege Engineers</a>. Contribute on <a href="https://github.com/SiegeEngineers/aoe2techtree" target="_blank">GitHub</a>
+                </p>
+                <p>
+                    Made by hszemi, Anda, exterkamp, paulirish<br>
+                    with thanks to Jineapple, TriRem, pip, and NkoDragaš<br>
+                </p>
+                <p>
+                    Item Metadata (cost, HP etc.) taken from <a href="https://github.com/HSZemi/aoe2dat" target="_blank">aoe2dat</a>
                 </p>
                 <p>
                     Age of Empires II &copy; Microsoft Corporation.<br>
                     <b>aoe2techtree</b> was created under Microsoft's "<a href="https://www.xbox.com/en-us/developers/rules" rel="nofollow">Game Content Usage Rules</a>" using assets
                     from Age of Empires II, and it is not endorsed by or affiliated with Microsoft.
                 </p>
-                <details>
-                    <summary>Credits</summary>
-                    <p>
-                        A project by <a href="https://aoe2.se" rel="author" class="has-text-grey">Siege Engineers</a>. Contribute on <a href="https://github.com/SiegeEngineers/aoe2techtree" target="_blank">GitHub</a>
-                    </p>
-                    <p>
-                        Made by hszemi, Anda, exterkamp, paulirish<br>
-                        with thanks to Jineapple, TriRem, pip, and NkoDragaš<br>
-                    </p>
-                    <p>
-                        Item Metadata (cost, HP etc.) taken from <a href="https://github.com/HSZemi/aoe2dat" target="_blank">aoe2dat</a>
-                    </p>
-                </details>
             </div>
         </div>
         <div id="techtree">
@@ -267,7 +264,7 @@
         // Make the xref badges
         createXRefBadges();
         // Create Legend
-        create_legend();
+        create_colour_key();
     });
 
     function imagePrefix(name) {
@@ -684,19 +681,25 @@
         return value;
     }
 
-    function create_legend() {
+    function create_colour_key() {
         let legend = [TYPES.UNIQUEUNIT, TYPES.UNIT, TYPES.BUILDING, TYPES.TECHNOLOGY];
         let kc = document.getElementById('color_key');
+        let tr = null
         for (let index in legend) {
-            let tr = document.createElement('tr');
+            if (index % 2 === 0) {
+                tr = document.createElement('tr');
+            }
             let td_color = document.createElement('td');
             td_color.style.backgroundColor = legend[index]['colour'];
-            td_color.style.border = '1px outset rgb(138, 93, 33)';
+            td_color.style.border = '1px outset #8a5d21';
             tr.appendChild(td_color);
-            td_color = document.createElement('td');
-            td_color.innerText = legend[index]['type'];
-            tr.appendChild(td_color);
-            kc.appendChild(tr);
+            let td_type = document.createElement('td');
+            td_type.innerText = data.strings[data.tech_tree_strings[legend[index]['name']]];
+            // td_type.style.fontWeight = 'bold';
+            tr.appendChild(td_type);
+            if (index % 2 === 1) {
+                kc.appendChild(tr);
+            }
         }
     }
 </script>

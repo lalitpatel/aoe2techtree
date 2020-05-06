@@ -8,7 +8,7 @@ body {
 
 body, input, select {
     font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
-    line-height: 1.25em;
+    line-height: 1.55;
 }
 
 body {
@@ -20,8 +20,8 @@ body {
     font-size: 10pt;
 }
 
-.info,
-.info a {
+.credits,
+.credits a {
     font-size: 8pt;
     display: inline;
     color: #4d3617;
@@ -130,7 +130,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
 }
 
 #thanks {
